@@ -611,7 +611,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoveIt.app/MoveIt";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoveIt Dev.app/MoveIt Dev";
 			};
 			name = Debug;
 		};

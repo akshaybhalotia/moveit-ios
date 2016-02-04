@@ -7,12 +7,11 @@ import React, {
 } from 'react-native';
 import NavBar from '../navBar';
 import Spinner from '../spinner';
-import UserAuthenticatedPage from '../userAuthenticatedPage';
 import TimelineList from './timelineList';
 import moment from 'moment';
 import URLBuilder from '../../urlBuilder';
 
-class TimelinePage extends UserAuthenticatedPage {
+class TimelinePage extends React.Component {
   constructor(props) {
     var date = new Date();
     super(props);
@@ -26,7 +25,7 @@ class TimelinePage extends UserAuthenticatedPage {
     };
   }
 
-  _afterCurrentUserAvailable() {
+  componentDidMount() {
     this.fetchData();
   }
 
@@ -48,7 +47,7 @@ class TimelinePage extends UserAuthenticatedPage {
       isLoading: true
     });
     let url = URLBuilder.timelineURL({
-      email: this.state.currentUser.email
+      email: this.props.currentUser.email
     });
     fetch(url)
     .then(response => response.json())

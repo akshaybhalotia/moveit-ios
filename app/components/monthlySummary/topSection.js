@@ -22,6 +22,7 @@ var styles = StyleSheet.create({
   },
   profileBackground: {
     width: deviceWidth,
+    height: 160,
     position: 'absolute',
     top: 0,
     left: 0,

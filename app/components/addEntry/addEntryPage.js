@@ -1,21 +1,22 @@
 'use strict';
 
-import React, {
-  Text,
-  TextInput,
-  View,
-  TouchableHighlight
-} from 'react-native';
-import moment from 'moment';
-import MainPage from '../mainPage';
-var UserAuthenticatedPage = require('../userAuthenticatedPage');
+var React = require('react-native');
+var moment = require('moment');
+var MainPage = require('../mainPage');
 var NavBar = require('../navBar');
 var Spinner = require('../spinner');
 var DatePicker = require('./datePicker');
 var formStyles = require('../../styles/formStyles');
 import URLBuilder from '../../urlBuilder';
 
-class AddEntryPage extends UserAuthenticatedPage {
+var {
+  Text,
+  TextInput,
+  View,
+  TouchableHighlight
+} = React;
+
+class AddEntryPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -142,7 +143,7 @@ class AddEntryPage extends UserAuthenticatedPage {
 
   submitForm() {
     var data = {
-      email: this.state.currentUser.email,
+      email: this.props.currentUser.email,
       entry: {
         date: this.state.date,
         duration: this.state.duration,

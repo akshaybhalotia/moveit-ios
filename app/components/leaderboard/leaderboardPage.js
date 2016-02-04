@@ -1,7 +1,6 @@
 'use strict';
 
 import React, {View, ListView, Component} from 'react-native';
-import UserAuthenticatedPage from '../userAuthenticatedPage';
 import LeaderboardList from './leaderboardList';
 import SummaryBar from './summaryBar';
 import NavBar from '../navBar';
@@ -10,7 +9,7 @@ import AddEntryPage from '../addEntry/addEntryPage';
 import moment from 'moment';
 import URLBuilder from '../../urlBuilder';
 
-class LeaderboardPage extends UserAuthenticatedPage {
+class LeaderboardPage extends React.Component {
   constructor(props) {
     var date = new Date();
     super(props);
@@ -24,7 +23,7 @@ class LeaderboardPage extends UserAuthenticatedPage {
     };
   }
 
-  _afterCurrentUserAvailable() {
+  componentDidMount() {
     this.fetchData();
   }
 
@@ -45,7 +44,7 @@ class LeaderboardPage extends UserAuthenticatedPage {
         />
         {this.state.isLoading ? <Spinner /> : <View />}
         <LeaderboardList
-          currentUser={this.state.currentUser}
+          currentUser={this.props.currentUser}
           listItems={this.state.itemsWithEntries}
           navigator={this.props.navigator}
           />
@@ -59,7 +58,7 @@ class LeaderboardPage extends UserAuthenticatedPage {
     });
     let url = URLBuilder.leaderboardURL({
       month: moment.monthsShort(this.state.month),
-      email: this.state.currentUser.email
+      email: this.props.currentUser.email
     });
     fetch(url)
     .then(response => response.json())

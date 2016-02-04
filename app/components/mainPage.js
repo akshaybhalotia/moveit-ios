@@ -1,17 +1,17 @@
 'use strict';
 
-import React, {
-  Component,
+var React = require('react-native');
+var {
   View,
   TabBarIOS,
   Text,
   Image
-} from 'react-native';
+} = 'react-native';
 var TimelinePage = require('./timeline/timelinePage');
 var LeaderboardPage = require('./leaderboard/leaderboardPage');
 var MonthlySummaryPage = require('./monthlySummary/monthlySummaryPage');
 
-export default class MainPage extends Component {
+export default class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +28,7 @@ export default class MainPage extends Component {
           selected={this.state.selectedTab === 'timeline'}
           onPress={() => this.setState({selectedTab: 'timeline'})}
           >
-          <TimelinePage />
+          <TimelinePage currentUser = {this.props.currentUser} />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Leaderboard"
@@ -38,6 +38,7 @@ export default class MainPage extends Component {
           >
           <LeaderboardPage
             navigator={this.props.navigator}
+            currentUser = {this.props.currentUser}
             />
         </TabBarIOS.Item>
         <TabBarIOS.Item

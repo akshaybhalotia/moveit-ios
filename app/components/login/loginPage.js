@@ -113,7 +113,7 @@ class LoginPage extends Component {
   }
 
   _goToAddEntryPage() {
-    this.props.navigator.push({
+    this.props.navigator.replace({
       name: 'Add Entry',
       component: AddEntryPage
     });
