@@ -1,6 +1,5 @@
 'use strict';
 
-var React = require('react-native');
 var moment = require('moment');
 var MainPage = require('../mainPage');
 var NavBar = require('../navBar');
@@ -9,14 +8,15 @@ var DatePicker = require('./datePicker');
 var formStyles = require('../../styles/formStyles');
 import URLBuilder from '../../urlBuilder';
 
-var {
+import React, {
   Text,
   TextInput,
   View,
-  TouchableHighlight
-} = React;
+  TouchableHighlight,
+  Component
+} from 'react-native';
 
-class AddEntryPage extends React.Component {
+class AddEntryPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,7 +46,6 @@ class AddEntryPage extends React.Component {
           rightButtonLink={{
             name: 'Main Page',
             component: MainPage,
-            passProps: {currentUser: this.state.currentUser}
           }}/>
         <View style={formStyles.container}>
           <View style={formStyles.fieldContainer}>
@@ -185,10 +184,7 @@ class AddEntryPage extends React.Component {
     console.log('Response: ' + JSON.stringify(response));
     this.props.navigator.push({
         name: 'Main Page',
-        component: MainPage,
-        passProps: {
-          currentUser: this.state.currentUser
-        }
+        component: MainPage
     });
   }
 

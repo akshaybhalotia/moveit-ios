@@ -1,17 +1,17 @@
 'use strict';
 
-var React = require('react-native');
-var {
+import React, {
   View,
   TabBarIOS,
   Text,
-  Image
-} = 'react-native';
+  Image,
+  Component
+} from 'react-native';
 var TimelinePage = require('./timeline/timelinePage');
 var LeaderboardPage = require('./leaderboard/leaderboardPage');
 var MonthlySummaryPage = require('./monthlySummary/monthlySummaryPage');
 
-export default class MainPage extends React.Component {
+class MainPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,3 +56,5 @@ export default class MainPage extends React.Component {
     );
   }
 }
+
+module.exports = MainPage;

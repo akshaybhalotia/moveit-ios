@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache"
+    "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
+    "test": "jest --verbose --testRunner='<rootDir>/node_modules/jest-cli/src/testRunners/jasmine/jasmine2.js' --watch"
   },
   "dependencies": {
     "moment": "^2.10.6",
@@ -15,6 +16,35 @@
     "gulp": "^3.9.0",
     "jsonfile": "^2.2.3",
     "run-sequence": "^1.1.5",
-    "shelljs": "^0.6.0"
+    "shelljs": "^0.6.0",
+    "babel-core": "^6.4.5",
+    "babel-jest": "^6.0.1",
+    "babel-preset-react": "^6.3.13",
+    "jest-cli": "^0.8.2",
+    "react": "^0.14.7",
+    "react-addons-test-utils": "^0.14.7"
+  },
+  "jest": {
+    "scriptPreprocessor": "jestSupport/scriptPreprocess.js",
+    "setupEnvScriptFile": "./node_modules/react-native/jestSupport/env.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "packager/react-packager/src/Activity/"
+    ],
+
+    "moduleNameMapper": {
+      "^image![a-zA-Z0-9$_-]+$": "GlobalImageStub",
+      "^[./a-zA-Z0-9$_-]+[.]png$": "RelativeImageStub"
+    },
+    "testFileExtensions": [
+      "js"
+    ],
+    "unmockedModulePathPatterns": [
+      "react",
+      "fbjs",
+      "promise",
+      "source-map"
+    ],
+    "verbose": true
   }
 }

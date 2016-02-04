@@ -2,7 +2,6 @@
 
 import React, {
   StyleSheet,
-  Image,
   View,
   ListView,
   Text,

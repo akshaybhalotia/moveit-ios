@@ -1,6 +1,10 @@
 'use strict';
 
-import React, {View, ListView, Component} from 'react-native';
+import React, {
+  View,
+  ListView,
+  Component
+} from 'react-native';
 import LeaderboardList from './leaderboardList';
 import SummaryBar from './summaryBar';
 import NavBar from '../navBar';
@@ -9,7 +13,7 @@ import AddEntryPage from '../addEntry/addEntryPage';
 import moment from 'moment';
 import URLBuilder from '../../urlBuilder';
 
-class LeaderboardPage extends React.Component {
+class LeaderboardPage extends Component {
   constructor(props) {
     var date = new Date();
     super(props);

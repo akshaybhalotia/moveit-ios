@@ -11,7 +11,7 @@ import TimelineList from './timelineList';
 import moment from 'moment';
 import URLBuilder from '../../urlBuilder';
 
-class TimelinePage extends React.Component {
+class TimelinePage extends Component {
   constructor(props) {
     var date = new Date();
     super(props);
